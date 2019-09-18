@@ -18,11 +18,11 @@ public class Bob {
         Scanner input = new Scanner(System.in);
 
             for (int index = 1; index < 5; index++){
-                if (question.indexOf("?") >= 0){
+                if (question.endsWith("?")){
                     System.out.println("Sure.");
                 } else if (question.indexOf("!") >= 0){
                     System.out.println("Whoa, chill out!");
-                } else if (question.length() == 0){
+                } else if (question.isEmpty()){
                     System.out.println("Fine. Be that way!");
                 } else
                 { System.out.println("Whatever.");}
