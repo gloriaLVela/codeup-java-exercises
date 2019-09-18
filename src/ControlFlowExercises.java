@@ -201,6 +201,7 @@ public class ControlFlowExercises {
             System.out.println("Please enter a grade");
 
             int grade = Integer.parseInt(input.nextLine());
+            System.out.println(grade);
 
             if (grade >= 100 && grade <= 88) {
                 letterGrande = "A";

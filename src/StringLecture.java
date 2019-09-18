@@ -110,6 +110,9 @@ public class StringLecture {
 
 //         convert word to pig latin word (assume word doesn't begin with a vowel or end in ay)
 
+        //// convert word to pig latin word (assume word doesn't begin with a vowel or end in ay)
+        //String cat = "cat"; // "atcay"
+
 
     }
 }
