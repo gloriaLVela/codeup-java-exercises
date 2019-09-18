@@ -15,16 +15,37 @@ public class ControlFlowExercises {
          * 5 6 7 8 9 10 11 12 13 14 15
          */
 
+        System.out.println("\n\n Create a while loop that runs so long as i is less than or equal to 15");
+
         byte maximum = 5;
-//while (maximum <= 15) {
-//    System.out.println(" maximum " + maximum);
-//    maximum++;
-//}
+        while (maximum <= 15) {
+            System.out.print(maximum + " ");
+            maximum++;
+        }
         /**
          * Do While
          *
-         * Create a do-while loop that will count by 2's starting with 0 and ending at 100. Follow each number with a new line.
-         * Alter your loop to count backwards by 5's from 100 to -10.
+         * Create a do-while loop that will count by 2's starting with 0 and ending at 100. Follow each number with a new line.**/
+        System.out.println("\n\nCreate a do-while loop that will count by 2's starting with 0 and ending at 100. Follow each number with a new line");
+        int x = 0;
+        do {
+            System.out.println(x);
+            x += 2;
+
+        } while (x <= 100);
+
+
+        /**
+         * Alter your loop to count backwards by 5's from 100 to -10.**/
+        System.out.println("\n\nAlter your loop to count backwards by 5's from 100 to -10");
+        int y = 100;
+        do {
+            System.out.println(y);
+            y -= 5;
+
+        } while (y >= -10);
+
+        /**
          * Create a do-while loop that starts at 2, and displays the number squared on each line while the number is less than 1,000,000. Output should equal:
          *
          *  2
@@ -33,11 +54,13 @@ public class ControlFlowExercises {
          *  256
          *  65536
          *  **/
-//        long binaryCount = 2;
-//        do{
-//            System.out.println( binaryCount);
-//            binaryCount *= binaryCount;
-//        } while ( binaryCount <= 65536);
+
+        System.out.println("\n\n Create a do-while loop that starts at 2, and displays the number squared on each line while the number is less than 1,000,000. ");
+        long binaryCount = 2;
+        do {
+            System.out.println(binaryCount);
+            binaryCount *= binaryCount;
+        } while (binaryCount < 1000000);
 
         /**
          * For
@@ -52,13 +75,18 @@ public class ControlFlowExercises {
          *          *  256
          *          *  65536
          * **/
-//        for (var i = 5; i <= 15; i++){
-//            System.out.println(i);
-//        }
 
-//        for (long i = 2; i <= 65536; i*=i){
-//            System.out.println(i);
-//        }
+        System.out.println("\n\nRefactor the previous two exercises to use a for loop instead A 100 -10");
+        for (var i = 100; i >= -10; i -= 5) {
+            System.out.println(i);
+        }
+
+
+        System.out.println("\n\nRefactor the previous two exercises to use a for loop instead B");
+
+        for (long i = 2; i < 1000000; i *= i) {
+            System.out.println(i);
+        }
 
         /**
          * Fizzbuzz
@@ -71,21 +99,23 @@ public class ControlFlowExercises {
          * For numbers which are multiples of both three and five: print “FizzBuzz”.
          *
          * **/
-//        for (var i = 1; i <= 100; i++){
-//            if (i%3 == 0){
-//                System.out.print("Fizz");
-//            }
-//            if (i%5 == 0){
-//                System.out.print("Buzz");
-//            }
-//
-//            if (i%3 == 0 || i%5 == 0){
-//                System.out.println(' ');
-//            } else{
-//                System.out.println(i);
-//            }
-//
-//        }
+
+        System.out.println("\n\n Fizzbuzz");
+        for (var i = 1; i <= 100; i++) {
+            if (i % 3 == 0) {
+                System.out.print("Fizz");
+            }
+            if (i % 5 == 0) {
+                System.out.print("Buzz");
+            }
+
+            if (i % 3 == 0 || i % 5 == 0) {
+                System.out.println(' ');
+            } else {
+                System.out.println(i);
+            }
+
+        }
 
         /**
          * Display a table of powers.
@@ -95,35 +125,6 @@ public class ControlFlowExercises {
          * Ask if the user wants to continue.
          *
          *
-         * **/
-        String playAgain = "Y";
-        Scanner input = new Scanner(System.in);
-
-        long squareValue = 0;
-        long cubeValue = 0;
-
-        do {
-            System.out.println("Please enter a number");
-            int num = input.nextInt();
-            System.out.println("number  |squared| cubed");
-            System.out.println("--------|-------| -----");
-            for (var i = 1; i <= num; i++) {
-                //System.out.print(i);
-                squareValue = i * i;
-                //System.out.print(squareValue);
-                cubeValue = i * i * i;
-                //System.out.println(cubeValue);
-                //System.out.println (i + ' ' + squareValue + ' ' + cubeValue);
-                System.out.format("%d\t  \t| %d\t  \t| %d", i, squareValue, cubeValue);
-                System.out.println(' ');
-
-            }
-            System.out.println("Do you want to play again? Y / N ");
-            playAgain = input.nextLine();
-
-        } while (playAgain == "Y");
-
-        /**
          * Assume that the user will enter valid data.
          * Only continue if the user agrees to.
          * Example Output
@@ -143,6 +144,35 @@ public class ControlFlowExercises {
          *
          * **/
 
+
+        System.out.println("\n\nDisplay a table of powers.");
+        String playAgain = "Y";
+        Scanner input = new Scanner(System.in);
+
+        long squareValue = 0;
+        long cubeValue = 0;
+
+        while (playAgain.equalsIgnoreCase("Y")) {
+            System.out.println("Please enter a number");
+            int num = Integer.parseInt(input.nextLine());
+            System.out.println("number      |squared        | cubed");
+            System.out.println("------------|---------------| -----");
+            for (var i = 1; i <= num; i++) {
+                squareValue = (long) Math.pow(i, 2);
+                cubeValue = (long) Math.pow(i, 3);
+                System.out.format("%d  \t\t\t| %d  \t\t\t| %d", i, squareValue, cubeValue);
+                System.out.println(' ');
+
+            }
+            System.out.println("\n\n Do you want to play again? Y / N ");
+            playAgain = input.nextLine();
+            //System.out.println(playAgain);
+
+        }
+
+        System.out.println("Have a nice day!");
+
+
         /**
          * Convert given number grades into letter grades.
          *
@@ -161,38 +191,39 @@ public class ControlFlowExercises {
          *
          * **/
 
+        System.out.println("\n\nConvert given number grades into letter grades");
         String keepPlaying = "Y";
         String letterGrande = "A";
-//
-        do {
-//
-////            System.out.println("Please enter a number");
-//
-            System.out.println("Please enter a grade");
-//
-            int grade = input.nextInt();
-            letterGrande = "A";
 
-            if (grade >= 0 && grade <= 59) {
+       // while (keepPlaying.equalsIgnoreCase("Y"));
+        {
+
+            System.out.println("Please enter a grade");
+
+            int grade = Integer.parseInt(input.nextLine());
+
+            if (grade >= 100 && grade <= 88) {
+                letterGrande = "A";
+            } else if (grade >= 80 && grade <= 87) {
+                letterGrande = "B";
+            } else  if (grade >= 67 && grade <= 79) {
+                letterGrande = "C";
+            } else  if (grade >= 60 && grade <= 66) {
+                letterGrande = "D";
+            } else  if (grade >= 0 && grade <= 59) {
                 letterGrande = "F";
             }
-            if (grade >= 60 && grade <= 66) {
-                letterGrande = "D";
-            }
-            if (grade >= 67 && grade <= 79) {
-                letterGrande = "C";
-            }
-            if (grade >= 80 && grade <= 87) {
-                letterGrande = "B";
-            }
 
-        System.out.println(letterGrande);
-    } while(keepPlaying =="y");
 
-    /**
-     * Bonus
-     *
-     * Edit your grade ranges to include pluses and minuses (ex: 99-100 = A+).
-     */
-}
+            System.out.println( letterGrande);
+
+            //System.out.println("\n\n Do you want to play again? Y / N ");
+           // keepPlaying = input.nextLine();
+        }
+        /**
+         * Bonus
+         *
+         * Edit your grade ranges to include pluses and minuses (ex: 99-100 = A+).
+         */
+    }
 }
