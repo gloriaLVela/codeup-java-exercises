@@ -22,33 +22,22 @@ public class StringExercise {
          * I can do backslashes \, double backslashes \\,
          * and the amazing triple backslash \\\!**/
 
-        String message = "";
-
         System.out.println("\n\n");
 
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Enter the maximum");
-
-        int maximum = Integer.parseInt(input.nextLine());
-
-        for (var index = 1; index <= maximum; index++){
-            switch (index % 3) {
-                case 1:
-                    message = " We don't need no education\n We don't need no thought control";
-                    break;
-                case 2:
-                    message = "Check \"this\" out!, \"s inside of \"s!";
-                    break;
-                default:
-                    message = "I can do backslashes \\, double backslashes \\\\,\n" +
-                            "and the amazing triple backslash \\\\\\!\n\n";
-                    break;
-            }
-
-            System.out.println(message);
-        }
+        String message1 = " We don't need no education\n We don't need no thought control";
+        String message2 = "Check \"this\" out!, \"s inside of \"s!";
+        String message3 = "In windows, the main drive is usually C:\\";
+        String message4 = "I can do backslashes \\, double backslashes \\\\,\n" +
+                "and the amazing triple backslash \\\\\\!\n\n";
 
 
+        System.out.println(message1);
+        System.out.println(message2);
+        System.out.println(message3);
+        System.out.println(message4);
     }
+
+
 }
