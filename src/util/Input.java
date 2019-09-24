@@ -2,11 +2,11 @@ package util;
 
 import java.util.Scanner;
 
-public class input {
+public class Input {
 
     private Scanner scanner;
 
-    public input() {
+    public Input() {
         this.scanner = new Scanner(System.in);
     }
 
@@ -18,7 +18,7 @@ public class input {
     public static void main(String[] args) {
 
 
-        input keyboard = new input();
+        util.Input keyboard = new util.Input();
 
 
         System.out.println(keyboard.getString());
@@ -125,3 +125,4 @@ public class input {
     }
 
 }
+
