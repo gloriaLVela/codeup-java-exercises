@@ -93,12 +93,25 @@ public class Input {
         }
     }
 
-    public int getInt(){
+    private int getInt(){
         /**
          * The getInt() method should keep prompting the user for input until they give an integer
          */
-        System.out.println("please enter a number ");
+        //System.out.println("please enter a number ");
         return Integer.parseInt(this.scanner.nextLine());
+    }
+
+    public int getInt(String prompt){
+        /**
+         * The getInt() method should keep prompting the user for input until they give an integer
+         */
+        if(!prompt.isEmpty()){
+            System.out.println(prompt);
+        } else {
+            System.out.println("Please enter a number");
+        }
+
+        return getInt();
     }
 
     public double getDouble(double min, double max) {
