@@ -15,7 +15,7 @@ public class InputTest {
 
         System.out.println(keyboard2.getInt(1, 10));
 
-        System.out.println(keyboard2.getInt());
+        System.out.println(keyboard2.getInt("Test"));
 
         System.out.println(keyboard2.getDouble(1, 10));
 
