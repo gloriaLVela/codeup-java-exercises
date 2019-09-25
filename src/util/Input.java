@@ -18,12 +18,12 @@ public class Input {
     public static void main(String[] args) {
 
 
-        util.Input keyboard = new util.Input();
-
-
-        System.out.println(keyboard.getString());
-
-        System.out.println(keyboard.yesNo());
+      util.Input keyboard = new util.Input();
+//
+//
+//        System.out.println(keyboard.getString());
+//
+//        System.out.println(keyboard.yesNo());
 
         System.out.println(keyboard.getInt(1, 5));
 
@@ -35,23 +35,42 @@ public class Input {
 
     }
 
-    public String getString() {
-        System.out.println("Please enter a sentence");
-        return scanner.nextLine();
+    private String getString() {
+
+        return this.scanner.nextLine();
     }
 
-    public boolean yesNo() {
+    public String getString(String prompt) {
+        if (prompt.isEmpty()){
+            System.out.println(prompt);
+        } else {
+            System.out.println("Please enter a sentence");
+        }
+
+        return getString();
+    }
+
+    private boolean yesNo() {
         /**
          * The yesNo method should return true if the user enters y, yes, or variants thereof, and false otherwise.
          */
-        System.out.println("Do you like movies?");
-        String answer = scanner.nextLine();
-        char firstChar = answer.trim().toLowerCase().charAt(0);
-        if (firstChar == 'y') {
-            return true;
+        System.out.println("Please answer Y/N?");
+        String answer = this.scanner.nextLine();
+        return (answer.equalsIgnoreCase("y") || answer.equalsIgnoreCase("yes"));
+
+    }
+
+    public boolean yesNo(String message) {
+        /**
+         * The yesNo method should return true if the user enters y, yes, or variants thereof, and false otherwise.
+         */
+        if(message.trim().length()> 0){
+            System.out.println(message);
         } else {
-            return false;
+            System.out.println("Do you like movies?");
         }
+
+        return yesNo();
 
     }
 
@@ -61,12 +80,9 @@ public class Input {
          *
          * The getInt(int min, int max) method should keep prompting the user for input until they give an integer within the min and max.
          */
-        System.out.format("please enter a number between %d and %d \n", min, max);
-        while (!scanner.hasNextInt()) {
-            System.out.format("please enter a number between %d and %d \n", min, max);
-            scanner.next();
-        }
-        int userInput = scanner.nextInt();
+        //System.out.format("please enter a number between %d and %d \n", min, max);
+
+        int userInput =  getInt();
 
         //* If the input is invalid, prompt the user again.
         if (userInput >= min && userInput <= max) {
@@ -82,11 +98,7 @@ public class Input {
          * The getInt() method should keep prompting the user for input until they give an integer
          */
         System.out.println("please enter a number ");
-        while (!scanner.hasNextInt()) {
-            System.out.println("please enter a number ");
-            scanner.next();
-        }
-        return scanner.nextInt();
+        return Integer.parseInt(this.scanner.nextLine());
     }
 
     public double getDouble(double min, double max) {
@@ -94,12 +106,8 @@ public class Input {
          *
          * The getDouble(int min, int max) method should keep prompting the user for input until they give an integer within the min and max.
          */
-        System.out.format("please enter a number between %.2f and %.2f \n", min, max);
-        while (!scanner.hasNextDouble()) {
-            System.out.format("please enter a number between %.2f and %.2f \n", min, max);
-            scanner.next();
-        }
-        double userInput = scanner.nextDouble();
+       // System.out.format("please enter a number between %.2f and %.2f \n", min, max);
+        double userInput = getDouble();
 
         //* If the input is invalid, prompt the user again.
         if (userInput >= min && userInput <= max) {
@@ -110,16 +118,29 @@ public class Input {
         }
     }
 
-    public double getDouble(){
+    private double getDouble(){
         /**
          * The getDouble() method should keep prompting the user for input until they give an double
          */
-        System.out.println("please enter a decimal number ");
-        while (!scanner.hasNextDouble()) {
-            System.out.println("please enter a decimal number ");
-            scanner.next();
+        //System.out.println("please enter a decimal number ");
+
+        return  Double.parseDouble(this.scanner.nextLine());
+
+
+    }
+
+    public double getDouble(String prompt){
+        /**
+         * The getDouble() method should keep prompting the user for input until they give an double
+         */
+       // System.out.println("please enter a decimal number ");
+        if(!prompt.isEmpty()){
+            System.out.println(prompt);
+        } else {
+            System.out.println("Please enter a decimal number");
         }
-        return scanner.nextDouble();
+
+        return  getDouble();
 
 
     }
