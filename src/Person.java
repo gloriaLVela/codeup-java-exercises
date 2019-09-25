@@ -1,7 +1,5 @@
 public class Person {
 
-//    private String firstName;
-//    private String lastName;
     private String name;
 
     public static void main(String[] args) {
@@ -38,7 +36,8 @@ public class Person {
     }
 
     public Person(String newName){
-        name = newName;
+
+        setName( newName);
     }
 
     // returns the person's name
@@ -54,7 +53,7 @@ public class Person {
     // prints a message to the console using the person's name
     public void sayHello()
     {
-        System.out.format("Hello this is %", this.name);
+        System.out.format("Hello this is %", this.getName());
     }
 
 
