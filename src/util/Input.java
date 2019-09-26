@@ -46,7 +46,6 @@ public class Input {
         } else {
             System.out.println(prompt);
         }
-
         return getString();
     }
 
