@@ -2,7 +2,11 @@ package movies;
 
 import util.Input;
 
+import java.util.Arrays;
+
 public class MoviesApplication {
+
+    public static Movie[] movieArray = MoviesArray.findAll();
 
     public static void main(String[] args) {
         /**
@@ -29,70 +33,84 @@ public class MoviesApplication {
 
         Input keyboard = new Input();
 
-        int choice = keyboard.getInt("* What would you like to do?\n" +
-                "\n" +
-                "0 - exit\n" +
-                "1 - view all movies\n" +
-                "2 - view movies in the animated category\n" +
-                "3 - view movies in the drama category\n" +
-                "4 - view movies in the horror category\n" +
-                "5 - view movies in the scifi category\n" +
-                "\n" +
-                "Enter your choice:");
+        String movieName;
+        String movieCategory;
 
-        //System.out.println("choice = " + choice);
+        //boolean done = false;
 
-        if (choice == 0) {
-            System.out.println("Have a good day!");
-        } else {
-            Movie[] movieArray = MoviesArray.findAll();
-            for (Movie movie : movieArray) {
-                // switch statement
-                switch (choice) {
-                    // case statements\
-                    case 1:
-                        System.out.println(movie.getName());
-                        break;
-                    // values must be of same type of expression
-                    case 2:
-                        // Statements
-                        if (movie.getCategory().equalsIgnoreCase("animated")) {
-                            System.out.println(movie.getName());
-                        }
-                        break; // break is optional
+        int choice = 9;
 
-                    case 3:
-                        // Statements
-                        if (movie.getCategory().equalsIgnoreCase("drama")) {
-                            System.out.println(movie.getName());
-                        }
-                        break; // break is optional
-                    case 4:
-                        // Statements
-                        if (movie.getCategory().equalsIgnoreCase( "horror")) {
-                            // System.out.println(movie.getCategory());
-                            System.out.println(movie.getName());
-                        }
-                        break; // break is optional
-                    case 5:
-                        // Statements
-                        if (movie.getCategory().equalsIgnoreCase( "scifi")) {
-                            System.out.println(movie.getName());
-                        }
-                        break; // break is optional
+        while (choice != 0) {
 
-                    // We can have any number of case statements
-                    // below is default statement, used when none of the cases is true.
-                    // No break is needed in the default case.
-                    default:
-                        // Statements
+            choice = keyboard.getInt("\n What would you like to do?\n" +
+                    "\n" +
+                    "0 - exit\n" +
+                    "1 - view all movies\n" +
+                    "2 - view movies in the animated category\n" +
+                    "3 - view movies in the drama category\n" +
+                    "4 - view movies in the horror category\n" +
+                    "5 - view movies in the scifi category\n" +
+                    "6 - add a movie\n" +
+                    "\n" +
+                    "Enter your choice:");
+
+            System.out.println("choice = " + choice);
+
+            if (choice == 0) {
+                System.out.println("Have a good day!");
+                break;
+
+            } else if (choice == 6) {
+                movieName = keyboard.getString("Please enter the movie name");
+                movieCategory = keyboard.getString("Please enter the movie category");
+                Movie newMovie = new Movie(movieName, movieCategory);
+                Movie[] newList = Arrays.copyOf(movieArray, movieArray.length + 1);
+                newList[newList.length - 1] = newMovie;
+                movieArray = newList;
+            } else {
+                for (Movie movie : movieArray) {
+                    // switch statement
+                    switch (choice) {
+                        // All movies
+                        case 1:
+                            System.out.println(movie.getName());
+                            break;
+
+                        case 2:
+                            // animated
+                            if (movie.getCategory().equalsIgnoreCase("animated")) {
+                                System.out.println(movie.getName());
+                            }
+                            break; // break is optional
+
+                        case 3:
+                            // dramae
+                            if (movie.getCategory().equalsIgnoreCase("drama")) {
+                                System.out.println(movie.getName());
+                            }
+                            break; // break is optional
+                        case 4:
+                            // horror
+                            if (movie.getCategory().equalsIgnoreCase("horror")) {
+                                // System.out.println(movie.getCategory());
+                                System.out.println(movie.getName());
+                            }
+                            break; // break is optional
+                        case 5:
+                            // sci-fi
+                            if (movie.getCategory().equalsIgnoreCase("scifi")) {
+                                System.out.println(movie.getName());
+                            }
+                            break; // break is optional
+                        default:
+                            // Statements
+                    }
+
                 }
-                //System.out.println(movie.getName());
+
+
             }
-
-
         }
-
 
     }
 }

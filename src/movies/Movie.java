@@ -1,5 +1,7 @@
 package movies;
 
+import util.Input;
+
 public class Movie {
 
     /**
@@ -39,10 +41,12 @@ public class Movie {
 
     private String name;
     private String category;
+    private Input keyboard = new Input();
 
     Movie(String name, String category){
         this.name = name;
         this.category = category;
+//        System.out.println("Movie name = " + name);
     }
 
     public String getName(){
@@ -50,6 +54,7 @@ public class Movie {
     }
 
     public void setName(String name){
+
         this.name = name;
     }
 
