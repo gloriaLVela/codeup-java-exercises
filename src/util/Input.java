@@ -18,21 +18,6 @@ public class Input {
     public static void main(String[] args) {
 
 
-      util.Input keyboard = new util.Input();
-//
-//
-//        System.out.println(keyboard.getString());
-//
-//        System.out.println(keyboard.yesNo());
-
-        System.out.println(keyboard.getInt(1, 5));
-
-        System.out.println(keyboard.getInt());
-
-        System.out.println(keyboard.getDouble(1, 5));
-
-        System.out.println(keyboard.getDouble());
-
     }
 
     private String getString() {
@@ -42,11 +27,10 @@ public class Input {
 
     public String getString(String prompt) {
         if (prompt.isEmpty()){
-            System.out.println(prompt);
-        } else {
             System.out.println("Please enter a sentence");
+        } else {
+            System.out.println(prompt);
         }
-
         return getString();
     }
 
@@ -93,6 +77,23 @@ public class Input {
         }
     }
 
+    public int getInt(String prompt, int min, int max) {
+        /**
+         *
+         * The getInt(int min, int max) method should keep prompting the user for input until they give an integer within the min and max.
+         */
+
+        if (prompt.isEmpty()){
+            System.out.format("please enter a number between %d and %d \n", min, max);
+        } else {
+            System.out.println(prompt);
+        }
+        //
+
+        return getInt(min,max);
+
+    }
+
     private int getInt(){
         /**
          * The getInt() method should keep prompting the user for input until they give an integer
@@ -114,12 +115,11 @@ public class Input {
         return getInt();
     }
 
-    public double getDouble(double min, double max) {
+    private double getDouble(double min, double max) {
         /**
          *
          * The getDouble(int min, int max) method should keep prompting the user for input until they give an integer within the min and max.
          */
-       // System.out.format("please enter a number between %.2f and %.2f \n", min, max);
         double userInput = getDouble();
 
         //* If the input is invalid, prompt the user again.
@@ -129,6 +129,20 @@ public class Input {
             System.out.format("The number %.2f is not between %.2f and %.2f \n", userInput, min, max);
             return getDouble(min, max);
         }
+    }
+
+    public double getDouble(String prompt, double min, double max) {
+        /**
+         *
+         * The getDouble(int min, int max) method should keep prompting the user for input until they give an integer within the min and max.
+         */
+
+        if (prompt.isEmpty()) {
+            System.out.format("please enter a number between %.2f and %.2f \n", min, max);
+        } else {
+            System.out.println(prompt);
+        }
+        return getDouble(min,max);
     }
 
     private double getDouble(){
