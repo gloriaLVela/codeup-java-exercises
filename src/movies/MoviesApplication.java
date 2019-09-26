@@ -6,7 +6,8 @@ import java.util.Arrays;
 
 public class MoviesApplication {
 
-    public static Movie[] movieArray = MoviesArray.findAll();
+    private static Movie[] movieArray = MoviesArray.findAll();
+    private static Input keyboard = new Input();
 
     public static void main(String[] args) {
         /**
@@ -31,7 +32,6 @@ public class MoviesApplication {
          *
          */
 
-        Input keyboard = new Input();
 
         String movieName;
         String movieCategory;
@@ -52,65 +52,76 @@ public class MoviesApplication {
                     "5 - view movies in the scifi category\n" +
                     "6 - add a movie\n" +
                     "\n" +
-                    "Enter your choice:");
+                    "Enter your choice:", 0, 6);
 
             System.out.println("choice = " + choice);
+            processChoice(choice);
 
-            if (choice == 0) {
+        }
+    }
+
+    private static boolean processChoice(int choice) {
+        boolean option = true;
+        //Movie newMovie;
+
+        // switch statement
+        switch (choice) {
+            case 0:
                 System.out.println("Have a good day!");
+                option = false;
+                break;
+            // All movies
+            case 1:
+                displayMovies();
                 break;
 
-            } else if (choice == 6) {
-                movieName = keyboard.getString("Please enter the movie name");
-                movieCategory = keyboard.getString("Please enter the movie category");
+            case 2:
+                // animated
+                displayMovies("animated");
+                break; // break is optional
+
+            case 3:
+                // drama
+                displayMovies("drama");
+                break; // break is optional
+            case 4:
+                // horror
+                displayMovies("horror");
+                break; // break is optional
+            case 5:
+                // sci-fi
+
+                displayMovies("scifi");
+                break; // break is optional
+            case 6:
+
+                String movieName = keyboard.getString("Please enter the movie name");
+                String movieCategory = keyboard.getString("Please enter the movie category");
                 Movie newMovie = new Movie(movieName, movieCategory);
                 Movie[] newList = Arrays.copyOf(movieArray, movieArray.length + 1);
                 newList[newList.length - 1] = newMovie;
                 movieArray = newList;
-            } else {
-                for (Movie movie : movieArray) {
-                    // switch statement
-                    switch (choice) {
-                        // All movies
-                        case 1:
-                            System.out.println(movie.getName());
-                            break;
+            default:
+                // Statements
+        }
+        return option;
 
-                        case 2:
-                            // animated
-                            if (movie.getCategory().equalsIgnoreCase("animated")) {
-                                System.out.println(movie.getName());
-                            }
-                            break; // break is optional
+    }
 
-                        case 3:
-                            // dramae
-                            if (movie.getCategory().equalsIgnoreCase("drama")) {
-                                System.out.println(movie.getName());
-                            }
-                            break; // break is optional
-                        case 4:
-                            // horror
-                            if (movie.getCategory().equalsIgnoreCase("horror")) {
-                                // System.out.println(movie.getCategory());
-                                System.out.println(movie.getName());
-                            }
-                            break; // break is optional
-                        case 5:
-                            // sci-fi
-                            if (movie.getCategory().equalsIgnoreCase("scifi")) {
-                                System.out.println(movie.getName());
-                            }
-                            break; // break is optional
-                        default:
-                            // Statements
-                    }
+    /**
+     * Display movies
+     */
+    private static void displayMovies() {
+        for (Movie movie : movieArray) {
+            System.out.println(movie.getMovieInfo());
+        }
+    }
 
-                }
-
-
+    private static void displayMovies(String currentChoice) {
+        for (Movie movie : movieArray) {
+            if (movie.getCategory().equalsIgnoreCase(currentChoice)) {
+                System.out.println(movie.getMovieInfo());
             }
         }
-
     }
 }
