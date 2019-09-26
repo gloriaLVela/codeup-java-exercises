@@ -42,9 +42,9 @@ public class Input {
 
     public String getString(String prompt) {
         if (prompt.isEmpty()){
-            System.out.println(prompt);
-        } else {
             System.out.println("Please enter a sentence");
+        } else {
+            System.out.println(prompt);
         }
 
         return getString();
