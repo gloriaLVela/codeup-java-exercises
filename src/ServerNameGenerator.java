@@ -13,17 +13,17 @@ public class ServerNameGenerator {
      * dedicated-photon
      */
 
+    private static String[] adjectiveList = {"amazing", "awkward", "aware", "bold", "clever", "classic", "complex", "colossal", "tiny", "damaged"};
+    private static String[] nounList = {"house", "cat", "river", "box", "penny", "city", "mouse", "potato", "fish", "jeans"};
 
     public static void main(String[] args) {
-        String[] adjectiveList = {"amazing", "awkward", "aware", "bold", "clever", "classic", "complex", "colossal", "tiny", "damaged"};
-        String[] nounList = {"house", "cat", "river", "box", "penny", "city", "mouse", "potato", "fish", "jeans"};
 
 
         System.out.println(randomString(adjectiveList) + "-" + randomString(nounList));
 
     }
 
-    public static String randomString(String[] inputArray){
+    public static String randomString(String[] inputArray) {
         int randomNumber;
         Random random = new Random();
 
