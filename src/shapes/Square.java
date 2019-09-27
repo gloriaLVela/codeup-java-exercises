@@ -11,19 +11,19 @@ public class Square extends Rectangle {
 
     public Square(double side) {
         super(side, side);
-        this.side = side;
+       // this.side = side;
     }
 
-    public double getPerimeter() {
+    @Override public double getPerimeter() {
 
         //return 2 * this.length + 2 * this.width;
         return 4 * side; //perimeter = 4 x side
 
     }
 
-    public double getArea() {
+    @Override public double getArea() {
         // area = side ^ 2
-        return side * 2;
+        return Math.pow(side, 2);
         //return this.length * this.width;
     }
 }
