@@ -19,14 +19,20 @@ public class ShapesTest {
          * area = side ^ 2
          * Re-run your ShapesTest class. How can you determine which getArea and getPerimeter methods are being called on each object?
          */
-        Rectangle box1 = new Rectangle(5,4);
+
+        Measurable myShape = new Rectangle(5, 4);
+        System.out.println(myShape.getArea());
+        System.out.println(myShape.getPerimeter());
+
+        Measurable box1 = new Square(5);
         System.out.println("box1.getArea() = " + box1.getArea());
         System.out.println("box1.getPerimeter() = " + box1.getPerimeter());
 
 
-        
-        Rectangle box2 = new Square(5);
-        System.out.println("box2.getArea() = " + box2.getArea());
-        System.out.println("box2.getPerimeter() = " + box2.getPerimeter());
+//        Square box2 = new Square(3,3);
+//        System.out.println("box2.getArea() = " + box2.getArea());
+//        System.out.println("box2.getPerimeter() = " + box2.getPerimeter());
+
+
     }
 }
