@@ -99,7 +99,7 @@ public class Input {
          * The getInt() method should keep prompting the user for input until they give an integer
          */
         //System.out.println("please enter a number ");
-       // return Integer.parseInt(this.scanner.nextLine());
+        // return Integer.parseInt(this.scanner.nextLine());
 
 
         String intNumber = "";
@@ -115,17 +115,19 @@ public class Input {
         }
     }
 
-
-
-    public int binaryToInteger(String binary) {
+    public int binaryToInteger() {
         //String binary = this.scanner.nextLine();
-        char[] numbers = binary.toCharArray();
-        int result = 0;
-        for(int i=numbers.length - 1; i>=0; i--)
-            if(numbers[i]=='1')
-                result += Math.pow(2, (numbers.length-i - 1));
-        return result;
+        int number = getInt("Please enter a number to change to binary");
+        String binary = Integer.toString(number);
+        return Integer.valueOf(binary, 2);
     }
+
+    public int hexadecimalToInteger() {
+        int number = getInt("Please enter a number to change to hexadecimal");
+        String hexadecimal = Integer.toString(number);
+        return Integer.valueOf(hexadecimal, 16);
+    }
+
 
     public int getInt(String prompt) {
         /**
@@ -184,7 +186,7 @@ public class Input {
         } catch (NumberFormatException e) {
             System.err.println("Unable to format. " + e);
             System.out.println("\nPlease enter a decimal number");
-          return  getDouble();
+            return getDouble();
         }
     }
 
