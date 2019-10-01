@@ -17,11 +17,12 @@ public class InputTest {
 //
       // System.out.println(keyboard2.getInt("Test integer"));
 
-        double dblNumber =  keyboard2.getDouble("", 1, 10);
+//        double dblNumber =  keyboard2.getDouble("", 1, 10);
+//
+//        System.out.println(dblNumber);
 
-        System.out.println(dblNumber);
-
-      //  System.out.println(keyboard2.binaryToInteger("111"));
+        System.out.println(keyboard2.binaryToInteger());
+        System.out.println(keyboard2.hexadecimalToInteger());
 
         //System.out.println(keyboard2.getDouble());
     }
