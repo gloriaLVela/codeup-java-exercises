@@ -6,6 +6,8 @@ public class Input {
 
     private Scanner scanner;
 
+    private static String userMessage;
+
     public Input() {
         this.scanner = new Scanner(System.in);
     }
@@ -111,6 +113,7 @@ public class Input {
         } catch (NumberFormatException e) {
             System.err.println("Unable to format. " + e);
             System.out.println("Please enter a number ");
+            //e.printStackTrace();
             return getInt();
         }
     }
