@@ -103,7 +103,7 @@ public class PracticeJava {
         System.out.print("Total mushrooms " + pickMushrooms(arr, startLocation, totalMoves));
     }
     /**************************************************
-     *
+     * Selection Sort
      **************************************************/
 
 }
